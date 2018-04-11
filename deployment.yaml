@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: im-a-pod
+  name: im-a-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+       app: im-a-pod
+  template:
+    metadata:
+      labels:
+        app: im-a-pod
+    spec:
+      containers:
+      - env:
+        - name: FLASK_APP
+          value: im-a-pod.py
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        image: ntfrnzn/im-a-pod
+        imagePullPolicy: IfNotPresent
+        name: im-a-pod
+        ports:
+        - name: http
+          containerPort: 5000
