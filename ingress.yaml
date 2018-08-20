@@ -2,11 +2,11 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.io/ingress.class: cloudflare-warp
+    kubernetes.io/ingress.class: argo-tunnel
   name: im-a-pod
 spec:
   rules:
-  - host: im-a-pod.anthopleura.net
+  - host: im-a-pod.stackpoint.us
     http:
       paths:
       - backend:

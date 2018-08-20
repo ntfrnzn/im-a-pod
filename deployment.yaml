@@ -32,3 +32,5 @@ spec:
         ports:
         - name: http
           containerPort: 5000
+      serviceAccount: im-a-pod
+      serviceAccountName: im-a-pod
