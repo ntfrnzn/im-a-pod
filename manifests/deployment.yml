@@ -1,13 +1,18 @@
-apiVersion : apps/v1beta1
+apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: "jzmollusc"
+  name: im-a-pod
+  labels:
+    app: im-a-pod.ntfrnzn.dev
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: im-a-pod.ntfrnzn.dev
   template:
     metadata:
       labels:
-        app: "jzmollusc"
+        app: im-a-pod.ntfrnzn.dev
     spec:
       containers:
         - name: "jzmollusc"
